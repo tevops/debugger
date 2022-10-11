@@ -11,11 +11,11 @@ from typing import Tuple, List, Union
 
 from .utils import get_instance, instance_username
 
-agmri_env = "prod"
-tmp_storage = "flight_codes"
-pem_variable = "ANALYTICS_PEM"
-directory = "image_processing"
-PROD_REPO = "s3://intelinair-prod-private/prod/flights"
+
+tmp_storage = "tmp_storage"
+pem_variable = "PEM_FILE_PATH"
+directory = "[DIRECTORY]"
+PROD_REPO = "[PROD REPO]"
 
 # The logger
 logger = logging.getLogger('PipelineRunner')
