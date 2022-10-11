@@ -9,8 +9,8 @@ from typing import Dict
 logger = logging.getLogger('InstanceManager')
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-REPO = '752038878129.dkr.ecr.us-east-1.amazonaws.com/automation'
-TAG = 'dockerized_manage_py_latest'
+REPO = '[ECR][REPO]'
+TAG = '[DOCKER IMAGE TAG]'
 
 
 def get_docker_auth() -> Dict:
