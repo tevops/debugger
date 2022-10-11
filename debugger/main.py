@@ -70,7 +70,7 @@ def cli():
             create_ec2(kind=sys.argv[2], env=sys.argv[3])
 
         elif cmd in runner_commands:
-            globals()[cmd]()
+            globals()[cmd].__call__()
 
         elif cmd == "run":
             run(*sys.argv[2:])
