@@ -72,10 +72,10 @@ class InstanceManager:
         for log in logs:
             logger.info(log.decode('utf-8').strip('\n'))
 
-    def create_ec2(self, kind: str = 'analytics_xs', env: str = 'release', priority: str = 'high'):
+    def create_ec2(self, kind: str = 'unknown', env: str = 'release', priority: str = 'high'):
         """
         Args:
-            kind: should be either of 'deep_learning' and 'analytics'
+            kind: should be of known type
             env: the environment to create the machine in
             priority: by default (implied) and set to high
         """
