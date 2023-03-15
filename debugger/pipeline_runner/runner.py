@@ -26,7 +26,7 @@ class PipelineRunner:
     def __init__(self, pem_file: str, username: str = instance_username):
         """
         Args:
-            pem_file: The path to your analytics.pem file
+            pem_file: The path to your [name].pem file
             username: The username to use to ssh to instance
 
         """
