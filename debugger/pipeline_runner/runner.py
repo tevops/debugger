@@ -86,19 +86,9 @@ class PipelineRunner:
             logger.warning(f'[debugger]: Instance {self.instance_id} cannot be terminated from state:{self.instance_state}')
 
     @classmethod
-    def sync_input_json(cls, flight: str, folder: str):
-        """
-        Downloads the input.json of the flight from s3
-        Args:
-            flight: the flight code
-            folder: the directory to download the flight into
-        """
-        return f"aws s3 cp {PROD_REPO}/{flight}/input.json {directory}/{folder}/{flight}.json"
-
-    @classmethod
-    def get_analytics_pem(cls) -> Union[str, None]:
+    def get_pem(cls) -> Union[str, None]:
         try:
-            pem_path = os.environ['ANALYTICS_PEM']
+            pem_path = os.environ['PEM']
             if os.path.exists(pem_path):
                 return pem_path
             else:
@@ -106,7 +96,7 @@ class PipelineRunner:
                 sys.exit()
 
         except KeyError:
-            logger.info(f"[debugger]: Please run 'export {pem_variable}=/path/to/your/analytics.pem' ")
+            logger.info(f"[debugger]: Please run 'export {pem_variable}=/path/to/your/[pem].pem' ")
             sys.exit()
 
     def prepare_client(self):
@@ -115,7 +105,8 @@ class PipelineRunner:
         # Connect/ssh to an instance
         try:
             client.connect(hostname=self.instance_ip,
-                           username=self.username, pkey=key)
+                           username=self.username, 
+                           pkey=key)
             self.runner = client
 
         except Exception as err:
