@@ -1,8 +1,7 @@
 
 
 # DEBUGGER
-Intended for easy debugging of image-processing repo. 
-It is based on manage.py [for ec2 creation]. These are the commands
+Intended for running a code on a remote ec2 - given you are using Pycharm Community edition.
 
 ## Installation
 Just run
@@ -20,13 +19,7 @@ before moving forward (else it will remind you).
 
 ## Usage
 
-Creates an EC2 instance (so that debugging can be run on that)
-
-        debugger start_ec2
-        debugger stop_ec2
-        debugger kill_ec2 
-
-
+        debugger [some python command]
 
 ## Repository Structure
 
